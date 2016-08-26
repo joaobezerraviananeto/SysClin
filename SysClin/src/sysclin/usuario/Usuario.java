@@ -1,17 +1,32 @@
 package sysclin.usuario;
 
 import java.util.Date;
+import javax.annotation.Generated;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Classe que representa os usuários do sistema.
  * 
  * @author Joao_Viana
  */
+
+@Entity
 public abstract class Usuario {
     
+    @Id
+    @GeneratedValue
     private int id;
+    
+    @Column (length = 100, nullable = false)
     private String nome;
+    
+    @Column (length = 15)
     private int cpf;
+    
+    
     private String telefone;
     private Date dataNascimento;
     private char sexo;
