@@ -2,6 +2,7 @@
 package sysclin.triagem;
 
 import sysclin.atendimento.Atendimento;
+import sysclin.paciente.Paciente;
 
 /**
  *
@@ -9,6 +10,6 @@ import sysclin.atendimento.Atendimento;
  */
 public class Triagem extends Atendimento{
     private int id;
-    private int paciente = Paciente;
+    
     
 }
