@@ -6,11 +6,11 @@
 package sysclin.telas;
 
 import sysclin.controladores.ControladorTelaLogin;
-import sysclin.modelo.Aluno;
-import sysclin.modelo.Professor;
-import sysclin.modelo.Recepcionista;
-import sysclin.modelo.Supervisor;
-import sysclin.modelo.Usuario;
+import sysclin.aluno.Aluno;
+import sysclin.professor.Professor;
+import sysclin.recepcionista.Recepcionista;
+import sysclin.supervisor.Supervisor;
+import sysclin.usuario.Usuario;
 import javax.swing.JOptionPane;
 
 /**
