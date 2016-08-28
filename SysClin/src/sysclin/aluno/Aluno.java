@@ -1,11 +1,14 @@
 package sysclin.aluno;
 
-import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import sysclin.usuario.Usuario;
 
-
+@Entity
 public class Aluno extends Usuario {
     
+    @Column(length = 40)
     private String periodo;
     
  
@@ -17,6 +20,5 @@ public class Aluno extends Usuario {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
-    
-    
+       
 }

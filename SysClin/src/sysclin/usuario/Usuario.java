@@ -1,11 +1,12 @@
 package sysclin.usuario;
 
 import java.util.Date;
-import javax.annotation.Generated;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Classe que representa os usuários do sistema.
@@ -13,28 +14,51 @@ import javax.persistence.Id;
  * @author Joao_Viana
  */
 
-@Entity
+@MappedSuperclass
+@DiscriminatorValue("usuario")
 public abstract class Usuario {
     
     @Id
     @GeneratedValue
     private int id;
     
-    @Column (length = 100, nullable = false)
+    @Column (length = 100)
     private String nome;
     
     @Column (length = 15)
     private int cpf;
     
-    
+    @Column (length=20)
     private String telefone;
+    
+    @Column (length = 15)
     private Date dataNascimento;
+    
+    
+    @Column (length = 1)
     private char sexo;
+    
+    @Column (length = 150)
     private String endereco;
+    
+    
+    @Column (length = 100)
     private String cidade;
+    
+    
+    @Column (length = 2)
     private String uf;
+    
+    
+    @Column (length = 50)
     private String login;
+    
+    
+    @Column (length = 50)
     private String senha;
+    
+    
+    @Column (length = 100)
     private String instituicao;
 
 
