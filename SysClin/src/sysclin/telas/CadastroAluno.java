@@ -114,7 +114,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         aluno.setNome(CampoNome.getText());
         aluno.setCpf(Integer.parseInt(CampoCpf.getText()));
         
-        dao.cadastrar(aluno);
+        dao.adicionar(aluno);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

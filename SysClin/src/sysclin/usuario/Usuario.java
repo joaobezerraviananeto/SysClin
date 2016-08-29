@@ -8,11 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-/**
- * Classe que representa os usuários do sistema.
- * 
- * @author Joao_Viana
- */
+
 
 @MappedSuperclass
 @DiscriminatorValue("usuario")

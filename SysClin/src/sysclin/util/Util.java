@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sysclin.util;
 
 import java.awt.Toolkit;
@@ -29,10 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-/**
- *
- * @author Pedro Saraiva
- */
+
 public class Util {
 
     JRootPane meurootpane;

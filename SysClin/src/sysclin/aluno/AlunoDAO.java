@@ -1,4 +1,3 @@
-
 package sysclin.aluno;
 
 import java.util.List;
@@ -6,59 +5,24 @@ import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import sysclin.util.GenericDAO;
 import sysclin.util.HibernateUtil;
 
-public class AlunoDAO {
+public class AlunoDAO extends GenericDAO<Aluno> {
 
-    private Session sessao;
-    private Transaction transacao;
+    public AlunoDAO() {
+        super(Aluno.class);
+    }
 
-    public void cadastrar(Aluno aluno) {
-        try {
-            sessao = HibernateUtil.getSessionFactory().openSession();
-            transacao = sessao.beginTransaction();
-            sessao.save(aluno);
-            transacao.commit();
-            sessao.clear();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar cadastrar o aluno", "Erro", JOptionPane.ERROR_MESSAGE);
+    public void salvar(Aluno aluno) {
+        if (aluno.getId()== 0) {
+            adicionar(aluno);
+            JOptionPane.showMessageDialog(null, "Aluno Cadastrado com Sucesso!");
+        } else {
+            atualizar(aluno);
+            JOptionPane.showMessageDialog(null, "Aluno Alterado com Sucesso!");
         }
+
     }
 
-    public void alterar(Aluno aluno) {
-        try {
-            sessao = HibernateUtil.getSessionFactory().openSession();
-            transacao = sessao.beginTransaction();
-            sessao.update(aluno);
-            transacao.commit();
-            sessao.clear();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar alterar o aluno", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void excluir(Aluno aluno) {
-        int resposta = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja deletar este aluno?", "Certeza?", JOptionPane.YES_NO_OPTION);
-        if (resposta == JOptionPane.YES_OPTION) {
-            try {
-                sessao = HibernateUtil.getSessionFactory().openSession();
-                transacao = sessao.beginTransaction();
-                sessao.delete(aluno);
-                transacao.commit();
-                sessao.clear();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar deletar o aluno", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    public List<Aluno> buscarAlunos() {
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        Criteria criteriaAlunos = sessao.createCriteria(Aluno.class);
-        List<Aluno> alunos = criteriaAlunos.list();
-        sessao.clear();
-
-        return alunos;
-    }
 }

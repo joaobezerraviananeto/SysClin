@@ -13,10 +13,7 @@ import org.hibernate.Transaction;
 import sysclin.aluno.Aluno;
 import sysclin.util.HibernateUtil;
 
-/**
- *
- * @author Joao_Viana
- */
+
 public class RecepcionistaDAO {
      private Session sessao;
     private Transaction transacao;

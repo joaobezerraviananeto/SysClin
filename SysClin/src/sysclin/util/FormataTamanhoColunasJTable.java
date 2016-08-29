@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sysclin.util;
 
 import java.awt.Component;
@@ -11,10 +8,6 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
-/**
- *
- * @author Pedro Saraiva
- */
 public class FormataTamanhoColunasJTable {
     
     public static void packColumns(JTable table, int margin) {

@@ -22,7 +22,7 @@ public class BuscarAlunos extends javax.swing.JFrame {
     public BuscarAlunos() {
         initComponents();
         dao = new AlunoDAO();
-        tableModel = new AlunoTableModel(dao.buscarAlunos());
+        tableModel = new AlunoTableModel(dao.listar());
         TabelaAlunos.setModel(tableModel);
     }
     
@@ -92,8 +92,8 @@ public class BuscarAlunos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Aluno aluno = tableModel.getRow(TabelaAlunos.getSelectedRow());
-        dao.excluir(aluno);
-        tableModel.setAlunos(dao.buscarAlunos());
+        dao.remover(aluno);
+        tableModel.setAlunos(dao.listar());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

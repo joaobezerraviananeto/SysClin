@@ -13,11 +13,6 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-
-/**
- *
- * @author @author JOABB
- */
 @SuppressWarnings("unchecked")
 public abstract class GenericDAO<T> {
 
