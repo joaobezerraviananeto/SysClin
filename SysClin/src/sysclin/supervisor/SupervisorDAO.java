@@ -5,10 +5,14 @@
  */
 package sysclin.supervisor;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 /**
  *
  * @author SpaceBR
  */
 public class SupervisorDAO {
-    
+     private Session sessao;
+    private Transaction transacao;
 }
