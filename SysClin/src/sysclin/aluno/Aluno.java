@@ -1,6 +1,4 @@
 package sysclin.aluno;
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import sysclin.usuario.Usuario;

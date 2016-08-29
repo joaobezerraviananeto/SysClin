@@ -3,69 +3,70 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sysclin.professor;
+package sysclin.recepcionista;
 
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import sysclin.aluno.Aluno;
 import sysclin.util.HibernateUtil;
 
 /**
  *
  * @author Joao_Viana
  */
-public class ProfessorDAO {
-    private Session sessao;
+public class RecepcionistaDAO {
+     private Session sessao;
     private Transaction transacao;
 
-    public void cadastrar(Professor professor) {
+    public void cadastrar(Recepcionista recepcionista) {
         try {
             sessao = HibernateUtil.getSessionFactory().openSession();
             transacao = sessao.beginTransaction();
-            sessao.save(professor);
+            sessao.save(recepcionista);
             transacao.commit();
             sessao.clear();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar cadastrar o professor", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar cadastrar o recepcionista", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void alterar(Professor professor) {
+    public void alterar(Recepcionista recepcionista) {
         try {
             sessao = HibernateUtil.getSessionFactory().openSession();
             transacao = sessao.beginTransaction();
-            sessao.update(professor);
+            sessao.update(recepcionista);
             transacao.commit();
             sessao.clear();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar alterar o professor", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar alterar o recepcionista", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void excluir(Professor professor) {
-        int resposta = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja deletar este Professor?", "Certeza?", JOptionPane.YES_NO_OPTION);
+    public void excluir(Recepcionista recepcionista) {
+        int resposta = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja deletar este recepcionista?", "Certeza?", JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION) {
             try {
                 sessao = HibernateUtil.getSessionFactory().openSession();
                 transacao = sessao.beginTransaction();
-                sessao.delete(professor);
+                sessao.delete(recepcionista);
                 transacao.commit();
                 sessao.clear();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar deletar o professor", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar deletar o recepcionista", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
 
-    public List<Professor> buscarProfessores() {
+    public List<Recepcionista> buscarAlunos() {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
-        Criteria criteriaProfessor = sessao.createCriteria(Professor.class);
-        List<Professor> professor = criteriaProfessor.list();
+        Criteria criteriaRecepcionista = sessao.createCriteria(Aluno.class);
+        List<Recepcionista> recepcionista = criteriaRecepcionista.list();
         sessao.clear();
 
-        return professor;
-    }
+        return recepcionista;
+}
 }
