@@ -12,10 +12,10 @@ public class AlunoDAO extends GenericDAO<Aluno> {
     public void salvar(Aluno aluno) {
         if (aluno.getId()== 0) {
             adicionar(aluno);
-            JOptionPane.showMessageDialog(null, "Aluno Cadastrado com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
         } else {
             atualizar(aluno);
-            JOptionPane.showMessageDialog(null, "Aluno Alterado com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Aluno alterado com sucesso!");
         }
 
     }
