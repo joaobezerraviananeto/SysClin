@@ -1,7 +1,8 @@
 package sysclin.paciente;
 
 import java.util.Date;
-
+import javax.persistence.Entity;
+@Entity
 public class Paciente {
     private int id;
     private String nome;
