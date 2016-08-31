@@ -1,12 +1,7 @@
 package sysclin.aluno;
 
-import java.util.List;
 import javax.swing.JOptionPane;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import sysclin.util.GenericDAO;
-import sysclin.util.HibernateUtil;
 
 public class AlunoDAO extends GenericDAO<Aluno> {
 
