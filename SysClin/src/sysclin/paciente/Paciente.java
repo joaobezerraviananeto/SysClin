@@ -1,25 +1,78 @@
 package sysclin.paciente;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 @Entity
 public class Paciente {
+    @Id
+    @GeneratedValue
     private int id;
+    
+    @Column (length = 100)
     private String nome;
+    
+    @Column (length = 8)
     private Date dataNascimento;
+    
+    @Column (length = 18)
     private String telefone;
+    
+    
+    @Column (length = 120)
     private String endereco;
+    
+    
+    @Column (length = 100)
     private String cidade;
+    
+    
+    @Column (length = 2)
     private String uf;
+    
+    
+    @Column (length = 15)
     private String cor;
+    
+    
+    @Column (length = 1)
     private char sexo;
+    
+    
+    
+    @Column (length = 20)
     private String estadoCivil;
+    
+    
+    @Column (length = 50)
     private String religiao;
+    
+    
+    @Column (length = 100)
     private String profissao;
+    
+    
+    @Column (length = 100)
     private String empresa;
+    
+    
+    
+    @Column (length = 100)
     private String nomePai;
+    
+    
+    
+    @Column (length = 100)
     private String nomeMae;
+    
+    
+    @Column (length = 100)
     private String status;
+    
+    
+    @Column (length = 150)
     private String observacao;
 
     public Paciente(int id, String nome, Date dataNascimento, String telefone, String endereco, String cidade, String uf, String cor, char sexo, String estadoCivil, String religiao, String profissao, String empresa, String nomePai, String nomeMae, String status, String observacao) {
@@ -169,6 +222,14 @@ public class Paciente {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
