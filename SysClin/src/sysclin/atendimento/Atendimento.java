@@ -19,6 +19,9 @@ public abstract class Atendimento {
     
     @Column (length = 10)
     private Date dataAtendimento;
+    
+     @Column (length = 10)
+    private Date duracaoAtendimento;
 
     public int getId() {
         return id;
