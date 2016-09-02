@@ -32,31 +32,10 @@ public class Paciente {
     @Column (length = 2)
     private String uf;
     
-    
-    @Column (length = 15)
-    private String cor;
-    
+      
     
     @Column (length = 1)
-    private char sexo;
-    
-    
-    
-    @Column (length = 20)
-    private String estadoCivil;
-    
-    
-    @Column (length = 50)
-    private String religiao;
-    
-    
-    @Column (length = 100)
-    private String profissao;
-    
-    
-    @Column (length = 100)
-    private String empresa;
-    
+    private char sexo; 
     
     
     @Column (length = 100)
@@ -66,10 +45,6 @@ public class Paciente {
     
     @Column (length = 100)
     private String nomeMae;
-    
-    
-    @Column (length = 100)
-    private String status;
     
     
     @Column (length = 150)
@@ -83,15 +58,8 @@ public class Paciente {
         this.endereco = endereco;
         this.cidade = cidade;
         this.uf = uf;
-        this.cor = cor;
-        this.sexo = sexo;
-        this.estadoCivil = estadoCivil;
-        this.religiao = religiao;
-        this.profissao = profissao;
-        this.empresa = empresa;
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
-        this.status = status;
         this.observacao = observacao;
         
     }
@@ -144,13 +112,7 @@ public class Paciente {
         this.uf = uf;
     }
 
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
+ 
 
     public char getSexo() {
         return sexo;
@@ -160,39 +122,7 @@ public class Paciente {
         this.sexo = sexo;
     }
 
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getReligiao() {
-        return religiao;
-    }
-
-    public void setReligiao(String religiao) {
-        this.religiao = religiao;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
-    }
-
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
-
-    public String getNomePai() {
+      public String getNomePai() {
         return nomePai;
     }
 
@@ -208,14 +138,7 @@ public class Paciente {
         this.nomeMae = nomeMae;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
+   
     public String getObservacao() {
         return observacao;
     }
