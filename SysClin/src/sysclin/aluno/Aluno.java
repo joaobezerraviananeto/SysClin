@@ -8,8 +8,6 @@ public class Aluno extends Usuario {
     
     @Column(length = 40)
     private String periodo;
-    
- 
 
     public String getPeriodo() {
         return periodo;

@@ -1,23 +1,22 @@
 
-package sysclin.aluno;
+package sysclin.professor;
 
-import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class AlunoTableModel extends AbstractTableModel {
 
-    public AlunoTableModel(List<Aluno> alunos) {
-        this.alunos = alunos;
+public class ProfessorTableModel extends AbstractTableModel {
+     public AlunoTableModel(List<Professor> professores) {
+        this.professores = professores;
         this.tituloColuas = new String[]{"Nome", "Cpf", "Endereço"};
     }
 
-    private List<Aluno> alunos;
+    private List<Professor> professores;
     private final String[] tituloColuas;
 
     @Override
     /*get row pega o numero de linhas*/
     public int getRowCount() {
-        return getAlunos().size();
+        return getProfessores().size();
     }
 
     @Override
@@ -27,15 +26,15 @@ public class AlunoTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Aluno aluno = getAlunos().get(rowIndex);
+        Professor professor = getProfessores().get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                return aluno.getNome();
+                return professor.getNome();
             case 1:
-                return aluno.getCpf();
+                return professor.getCpf();
             case 2:
-                return aluno.getEndereco();
+                return professor.getEndereco();
             default:
                 return null;
         }
@@ -56,23 +55,22 @@ public class AlunoTableModel extends AbstractTableModel {
         }
     }
 
-    public Aluno getRow(int row) {
-        return getAlunos().get(row);
+    public Professor getRow(int row) {
+        return getProfessores().get(row);
     }
 
     /**
      * @return the alunos
      */
-    public List<Aluno> getAlunos() {
-        return alunos;
+    public List<Professor> getProfessores() {
+        return professor;
     }
 
     /**
      * @param alunos the alunos to set
      */
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
+    public void setProfessores(List<Professor> professores) {
+        this.professores = professores;
         fireTableDataChanged();
     }
-
 }
