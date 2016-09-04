@@ -1,39 +1,40 @@
-
 package sysclin.professor;
 
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-
 public class ProfessorTableModel extends AbstractTableModel {
-     public AlunoTableModel(List<Professor> professores) {
+
+    public ProfessorTableModel(List<Professor> professores) {
         this.professores = professores;
-        this.tituloColuas = new String[]{"Nome", "Cpf", "Endereço"};
+        tituloColunas = new String[]{"Nome", "Telefone", "Turma", "Endereço"};
     }
 
     private List<Professor> professores;
-    private final String[] tituloColuas;
+    private String tituloColunas[];
 
     @Override
-    /*get row pega o numero de linhas*/
     public int getRowCount() {
-        return getProfessores().size();
+        return professores.size();
     }
 
     @Override
     public int getColumnCount() {
-        return tituloColuas.length;
+        return tituloColunas.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Professor professor = getProfessores().get(rowIndex);
+        Professor professor = professores.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
                 return professor.getNome();
             case 1:
-                return professor.getCpf();
+                return professor.getTelefone();
             case 2:
+                return professor.getTurma();
+            case 3:
                 return professor.getEndereco();
             default:
                 return null;
@@ -42,35 +43,17 @@ public class ProfessorTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        // return tituloColuas[column];
         switch (column) {
             case 0:
-                return tituloColuas[0];
+                return tituloColunas[0];
             case 1:
-                return tituloColuas[1];
+                return tituloColunas[1];
             case 2:
-                return tituloColuas[2];
+                return tituloColunas[2];
+            case 3:
+                return tituloColunas[3];
             default:
                 return null;
         }
-    }
-
-    public Professor getRow(int row) {
-        return getProfessores().get(row);
-    }
-
-    /**
-     * @return the alunos
-     */
-    public List<Professor> getProfessores() {
-        return professor;
-    }
-
-    /**
-     * @param alunos the alunos to set
-     */
-    public void setProfessores(List<Professor> professores) {
-        this.professores = professores;
-        fireTableDataChanged();
     }
 }

@@ -54,9 +54,6 @@ public abstract class Usuario {
     private String senha;
     
     
-    @Column (length = 100)
-    private String instituicao;
-
 
     public int getId() {
         return id;
@@ -146,13 +143,6 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    public String getInstituicao() {
-        return instituicao;
-    }
-
-    public void setInstituicao(String instituicao) {
-        this.instituicao = instituicao;
-    }
-    
+      
     
 }
