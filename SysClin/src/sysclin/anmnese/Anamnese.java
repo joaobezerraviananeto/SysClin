@@ -20,12 +20,12 @@ public class Anamnese{
     
     @Column (length = 10)
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dataAtendimento;
+    private Date data;
     
     
     @Column (length = 10)
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date duracaoAtendimento;
+    private Date duracao;
     
     
     @Column (length = 100)
@@ -184,19 +184,19 @@ public class Anamnese{
         this.usoDeMedicamentos = usoDeMedicamentos;
     }
 
-    public Date getDataAtendimento() {
-        return dataAtendimento;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataAtendimento(Date dataAtendimento) {
-        this.dataAtendimento = dataAtendimento;
+    public void setData(Date dataAtendimento) {
+        this.data = dataAtendimento;
     }
 
-    public Date getDuracaoAtendimento() {
-        return duracaoAtendimento;
+    public Date getDuracao() {
+        return duracao;
     }
 
     public void setDuracaoAtendimento(Date duracaoAtendimento) {
-        this.duracaoAtendimento = duracaoAtendimento;
+        this.duracao = duracaoAtendimento;
     }
     }
