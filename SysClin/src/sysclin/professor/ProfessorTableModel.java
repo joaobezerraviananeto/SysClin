@@ -11,7 +11,7 @@ public class ProfessorTableModel extends AbstractTableModel {
     }
 
     private List<Professor> professores;
-    private String tituloColunas[];
+    private final String tituloColunas[];
 
     @Override
     public int getRowCount() {

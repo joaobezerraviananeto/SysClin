@@ -63,6 +63,7 @@ public class AlunoTableModel extends AbstractTableModel {
     /**
      * @return the alunos
      */
+    
     public List<Aluno> getAlunos() {
         return alunos;
     }
@@ -74,5 +75,6 @@ public class AlunoTableModel extends AbstractTableModel {
         this.alunos = alunos;
         fireTableDataChanged();
     }
+    
 
 }
