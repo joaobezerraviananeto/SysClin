@@ -18,4 +18,8 @@ public class SupervisorDAO extends GenericDAO<Supervisor> {
            JOptionPane.showMessageDialog(null, "Supervisor alterado com sucesso com Sucesso!");
       }
   }
+  
+  public boolean existeUmSupervisor(){
+     return !listar().isEmpty();
+  }
 }

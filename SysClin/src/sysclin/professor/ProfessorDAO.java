@@ -13,7 +13,7 @@ public class ProfessorDAO extends GenericDAO<Professor> {
     public void salvar(Professor professor){
         if(professor.getId()==0){
             adicionar(professor);
-            JOptionPane.showInternalMessageDialog(null, "Professor cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso");
         }else{
             atualizar(professor);
             JOptionPane.showMessageDialog(null, "Professor alterado com sucesso");

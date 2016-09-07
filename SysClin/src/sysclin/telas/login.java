@@ -5,6 +5,12 @@
  */
 package sysclin.telas;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import sysclin.supervisor.SupervisorDAO;
+import sysclin.usuario.UsuarioDAO;
+import sysclin.util.Util;
+
 /**
  *
  * @author Vandeilson
@@ -15,7 +21,25 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public login() {
-        initComponents();
+        initComponents(); 
+        dao = new UsuarioDAO();       
+        verificarExistenciaSupervisor();
+    }
+
+    private void verificarExistenciaSupervisor() {
+        if (!new SupervisorDAO().existeUmSupervisor()) {
+            new CadSupervisor(this, true).setVisible(true);
+        }
+    }
+
+    private final UsuarioDAO dao;
+
+    private void realizarLogin() {
+        if (dao.isLoginValido(jTextField1.getText(), Util.md5(jPasswordField1.getText()))) {
+            JOptionPane.showMessageDialog(null, "Deu certo");
+        } else {
+            JOptionPane.showMessageDialog(null, "Deu errado");
+        }
     }
 
     /**
@@ -39,6 +63,7 @@ public class login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(35, 110, 231));
 
@@ -55,6 +80,18 @@ public class login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Centaur", 2, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(35, 110, 231));
         jLabel4.setText("Senha:");
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
+
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -99,11 +136,21 @@ public class login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Centaur", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(35, 110, 231));
         jButton1.setText("CONFIRMAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Centaur", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(35, 110, 231));
         jButton2.setText("CANCELAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,7 +193,28 @@ public class login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        realizarLogin();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            realizarLogin();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            realizarLogin();
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -2,17 +2,19 @@ package sysclin.usuario;
 
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-
-
-@MappedSuperclass
-@DiscriminatorValue("usuario")
-public abstract class Usuario {
+/**
+ *
+ * @author João
+ */
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Usuario {
     
     @Id
     @GeneratedValue
@@ -21,8 +23,8 @@ public abstract class Usuario {
     @Column (length = 100, nullable = false)
     private String nome;
      
-    @Column (length = 15)
-    private int cpf;
+    @Column (length = 11)
+    private long cpf;
     
     @Column (length=20)
     private String telefone;
@@ -36,6 +38,12 @@ public abstract class Usuario {
     
     @Column (length = 150)
     private String endereco;
+    
+    @Column (length = 150)
+    private String bairro;
+    
+    @Column (length = 6)
+    private int enderecoNumero;
     
     
     @Column (length = 100)
@@ -53,6 +61,12 @@ public abstract class Usuario {
     @Column (length = 50)
     private String senha;
     
+    @Column (length = 40)
+    private String email;
+    
+    
+    @Column (length = 300)
+    private String complemento;
     
 
     public int getId() {
@@ -71,11 +85,11 @@ public abstract class Usuario {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -141,6 +155,62 @@ public abstract class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    /**
+     * @return the enderecoNumero
+     */
+    public int getEnderecoNumero() {
+        return enderecoNumero;
+    }
+
+    /**
+     * @param enderecoNumero the enderecoNumero to set
+     */
+    public void setEnderecoNumero(int enderecoNumero) {
+        this.enderecoNumero = enderecoNumero;
+    }
+
+    /**
+     * @return the complemento
+     */
+    public String getComplemento() {
+        return complemento;
+    }
+
+    /**
+     * @param complemento the complemento to set
+     */
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    /**
+     * @return the bairro
+     */
+    public String getBairro() {
+        return bairro;
+    }
+
+    /**
+     * @param bairro the bairro to set
+     */
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
       

@@ -1,4 +1,3 @@
-
 package sysclin.util;
 
 import java.awt.Toolkit;
@@ -17,15 +16,12 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static javassist.CtMethod.ConstParameter.string;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
-
 
 public class Util {
 
@@ -38,7 +34,7 @@ public class Util {
     /**
      * Realiza a validação do CPF.
      *
-     * @param strCPF número de CPF a ser validado
+     * @param strCpf
      * @return true se o CPF é válido e false se não é válido
      */
     public static boolean CPF(String strCpf) {
@@ -103,6 +99,7 @@ public class Util {
         //comparar o digito verificador do cpf com o primeiro resto + o segundo resto.  
         return nDigVerific.equals(nDigResult);
     }
+
     /* @MD5 Método de Encriptação da Senha em um HASH Hexadecimal */
 
     public static String md5(String senha) {
@@ -116,15 +113,40 @@ public class Util {
         return "";
     }
 
-    public static boolean chkVazio(String... campos) {
+    public static boolean chkVazios(String... campos) {
         for (String chk : campos) {
             if (chk.isEmpty() || chk.equals("-----") || chk.equals("  /  /    ") || chk.equals("  .   .   /    -  ")
-            || chk.equals("(  )     -    ")) {
+                    || chk.equals("(  )     -    ") || chk.equals(".   .   -")) {
                 JOptionPane.showMessageDialog(null, "Existem campos obrigatórios que não foram preenchidos!");
                 return false;
             }
         }
         return true;
+    }
+    
+    public static boolean chkVazio(String campo) {
+        
+            if (campo.isEmpty() || campo.equals("-----") || campo.equals("  /  /    ") || campo.equals("  .   .   /    -  ")
+                    || campo.equals("(  )     -    ") || campo.equals(".   .   -")){
+                return false;
+        }
+        return true;
+    }
+    
+    public static long sanitizeLong(String texto){
+     if(!chkVazio(texto)){
+       return 0;
+     }else{
+       return Long.parseLong(texto);
+     }
+    }
+    
+    public static int sanitizeInt(String texto){
+     if(!chkVazio(texto)){
+       return 0;
+     }else{
+       return Integer.parseInt(texto);
+     }
     }
 
     public static boolean chkCaracteres(String... caracteres) {
@@ -215,7 +237,6 @@ public class Util {
         jframe.setIconImage(Toolkit.getDefaultToolkit().getImage(classe.getResource("/fvsosp/imagens/bicoaguia.png")));
     }
 
-
     static public boolean validaCNPJ(String str_cnpj) {
         int soma = 0, aux, dig;
         String cnpj_calc = str_cnpj.substring(0, 12);
@@ -261,4 +282,24 @@ public class Util {
         return str_cnpj.equals(cnpj_calc);
     }
 
+    public static String formatarCPF(String cpf) {
+        String novoCpf = "";
+
+        for (int i = 0; i < cpf.length(); i++) {
+            if (!cpf.substring(i, i + 1).equals("-") && !cpf.substring(i, i + 1).equals(".")) {
+                novoCpf += cpf.substring(i, i + 1);
+            }
+        }
+        return novoCpf;
+    }
+
+    public static Date formatData(String data) {
+        try {
+            DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+            return (Date) formatter.parse(data);
+        } catch (Exception e) {
+            System.err.println("Ocorreu um erro ao formatar a data");
+            return null;
+        }
+    }
 }
