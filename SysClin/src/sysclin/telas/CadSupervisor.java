@@ -65,6 +65,8 @@ public class CadSupervisor extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "O campo cpf e obrigatório");
       }else if(!Util.CPF(Util.formatarCPF(String.valueOf(cpf)))){
          JOptionPane.showMessageDialog(null, "O Cpf e inválido");
+      }else if(Util.chkVazio(numero) && !Util.isIntegerValid(numero)){
+          JOptionPane.showMessageDialog(null, "O número de endereço e inválido");
       }else{
          Supervisor supervisor = new Supervisor();
          supervisor.setNome(nome);

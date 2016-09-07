@@ -37,6 +37,15 @@ public class Util {
      * @param strCpf
      * @return true se o CPF é válido e false se não é válido
      */
+    public static boolean isIntegerValid(String numero){
+        try {
+            Integer.parseInt(numero);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
     public static boolean CPF(String strCpf) {
         if (strCpf.equals("")) {
             return false;
