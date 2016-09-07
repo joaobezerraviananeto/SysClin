@@ -23,7 +23,8 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents(); 
         dao = new UsuarioDAO();       
-        verificarExistenciaSupervisor();
+        verificarExistenciaSupervisor();      
+        this.setTitle("Sysclin - Login");
     }
 
     private void verificarExistenciaSupervisor() {

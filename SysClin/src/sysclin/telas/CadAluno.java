@@ -18,6 +18,7 @@ public class CadAluno extends javax.swing.JFrame {
      */
     public CadAluno() {
         initComponents();
+        setTitle("Sysclin - Cadastro de alunos");
     }
 
     private AlunoDAO dao;

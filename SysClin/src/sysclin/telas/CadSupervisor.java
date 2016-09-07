@@ -23,6 +23,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         dao = new SupervisorDAO();
+        this.setTitle("Sysclin - Cadastro de supervisor");
     }
     
      private SupervisorDAO dao;
@@ -79,6 +80,7 @@ public class CadSupervisor extends javax.swing.JDialog {
          supervisor.setSexo(sexo);
          supervisor.setTelefone(celular);
          supervisor.setEnderecoNumero(Util.sanitizeInt(numero));
+         supervisor.setEndereco(endereco);
          supervisor.setComplemento(complemento);
          supervisor.setBairro(bairro);
          supervisor.setEmail(email);

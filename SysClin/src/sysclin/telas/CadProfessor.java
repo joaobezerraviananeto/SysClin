@@ -15,7 +15,8 @@ public class CadProfessor extends javax.swing.JFrame {
      * Creates new form CadProfessor
      */
     public CadProfessor() {
-        initComponents();
+        initComponents();   
+        this.setTitle("Sysclin - Cadastro de professor");
     }
 
     /**
