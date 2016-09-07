@@ -2,19 +2,21 @@ package sysclin.usuario;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author João
  */
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario {
+@MappedSuperclass
+@DiscriminatorValue("usuario")
+public abstract class Usuario {
     
     @Id
     @GeneratedValue

@@ -1,24 +1,25 @@
 
-package sysclin.aluno;
+package sysclin.supervisor;
 
+import sysclin.aluno.*;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import sysclin.aluno.Aluno;
 
-public class AlunoTableModel extends AbstractTableModel {
+public class SupervisorTableModel extends AbstractTableModel {
 
-    public AlunoTableModel(List<Aluno> alunos) {
-        this.alunos = alunos;
-        this.tituloColuas = new String[]{"id", "Nome", "CPF"};
+    public SupervisorTableModel(List<Supervisor> supervisores) {
+        this.supervisores = supervisores;
+        this.tituloColuas = new String[]{"Id", "Nome", "CPF"};
     }
 
-    private List<Aluno> alunos;
+    private List<Supervisor> supervisores;
     private final String[] tituloColuas;
 
     @Override
     /*get row pega o numero de linhas*/
     public int getRowCount() {
-        return alunos.size();
+        return supervisores.size();
     }
 
     @Override
@@ -28,15 +29,15 @@ public class AlunoTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Aluno aluno = alunos.get(rowIndex);
+        Supervisor supervisor = supervisores.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                return aluno.getId();
+                return supervisor.getId();
             case 1:
-                return aluno.getNome();
+                return supervisor.getNome();
             case 2:
-                return aluno.getCpf();
+                return supervisor.getCpf();
             default:
                 return null;
         }

@@ -10,7 +10,7 @@
 import javax.swing.JOptionPane;
 import sysclin.aluno.Aluno;
 import sysclin.aluno.AlunoDAO;
-import sysclin.aluno.AlunoTableModel;
+import sysclin.usuario.AlunoTableModel;
 
 /**
  *

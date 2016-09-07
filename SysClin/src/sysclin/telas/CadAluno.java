@@ -7,10 +7,8 @@ package sysclin.telas;
 
 import sysclin.aluno.AlunoDAO;
 
-/**
- *
- * @author Vandeilson
- */
+
+
 public class CadAluno extends javax.swing.JFrame {
 
     /**
@@ -482,6 +480,11 @@ public class CadAluno extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(35, 110, 231));
         jButton3.setText("PESQUISAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
@@ -539,6 +542,11 @@ public class CadAluno extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

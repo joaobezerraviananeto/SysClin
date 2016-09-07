@@ -1,5 +1,6 @@
 package sysclin.util;
 
+import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -17,10 +18,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.AbstractAction;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JRootPane;
+import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 public class Util {
@@ -309,6 +315,29 @@ public class Util {
         } catch (Exception e) {
             System.err.println("Ocorreu um erro ao formatar a data");
             return null;
+        }
+    }
+    
+    
+    public static void limparCamposGenerico(JDialog Frame) {
+        //limpa os campos     
+        for (int i = 0; i < Frame.getContentPane().getComponentCount(); i++) {
+            //varre todos os componentes     
+            Component c = Frame.getContentPane().getComponent(i);
+            if (c instanceof JComboBox) {
+                JComboBox field = (JComboBox) c;
+                field.setSelectedItem("-----");
+            }else if (c instanceof JTextField) {
+                JTextField field = (JTextField) c;
+                field.setText("");
+            }else if (c instanceof JRadioButton) {
+                JRadioButton field = (JRadioButton) c;
+                field.setSelected(false);
+            }else if (c instanceof JCheckBox) {
+                JCheckBox field = (JCheckBox) c;
+                field.setSelected(false);
+            }
+            
         }
     }
 }

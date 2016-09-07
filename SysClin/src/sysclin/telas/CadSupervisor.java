@@ -5,9 +5,11 @@
  */
 package sysclin.telas;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 import sysclin.supervisor.Supervisor;
 import sysclin.supervisor.SupervisorDAO;
+import sysclin.supervisor.SupervisorTableModel;
 import sysclin.util.Util;
 
 /**
@@ -16,78 +18,81 @@ import sysclin.util.Util;
  */
 public class CadSupervisor extends javax.swing.JDialog {
 
-    /**
-     * Creates new form lala
-     */
+    Supervisor supervisor = new Supervisor();
+    SupervisorDAO dao  = new SupervisorDAO();
+
     public CadSupervisor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        dao = new SupervisorDAO();
         this.setTitle("Sysclin - Cadastro de supervisor");
     }
-    
-     private SupervisorDAO dao;
 
+    public void limparCampos(){
+        tf_login.setText("");
+        tfsenha.setText("");
+        tfbairro_aluno.setText("");
+        supervisor = new Supervisor();
+    }
     
-    private void cadastrar(){
-      String login = tf_login.getText().trim();
-      String senha = tfsenha.getText().trim();
-      String nome = tfnome.getText().trim();
-      String cpf = tfcpf.getText().trim();
-      String nasc = tfnasc_aluno.getText().trim();
-      char sexo;
-      
-      if(tfradio_masculino.isSelected()){
-          sexo = 'M';
-      }else{
-          sexo = 'F';
-      }
-      String rg = tfrg_aluno.getText().trim();
-      String email = tfemail_aluno.getText().trim();
-      String turno = tfturno.getSelectedItem().toString();
-      
-      String celular = tfcelular_aluno.getText().trim();
-      String endereco = tfendereco_aluno.getText().trim();
-      String bairro = tfbairro_aluno.getText().trim();
-      String complemento = tfcomplemento_aluno.getText().trim();
-      String estado = tfestado.getSelectedItem().toString();
-      String cidade = tfcidade.getSelectedItem().toString();
-      String numero = tfnumero_aluno.getText().trim();
-      
-      if(!Util.chkVazio(login)){
-        JOptionPane.showMessageDialog(null, "O campo login e obrigatório");
-      }else if(!Util.chkVazio(nome)){
-        JOptionPane.showMessageDialog(null, "O campo nome e obrigatório");
-      }else if(!Util.chkVazio(senha)){
-        JOptionPane.showMessageDialog(null, "O campo senha e obrigatório");
-      }else if(!senha.equals(tfconfirma_aluno.getText().trim())){
-      JOptionPane.showMessageDialog(null, "As senhas não coincidem");
-      }else if(!Util.chkVazio(cpf)){
-        JOptionPane.showMessageDialog(null, "O campo cpf e obrigatório");
-      }else if(!Util.CPF(Util.formatarCPF(String.valueOf(cpf)))){
-         JOptionPane.showMessageDialog(null, "O Cpf e inválido");
-      }else if(Util.chkVazio(numero) && !Util.isIntegerValid(numero)){
-          JOptionPane.showMessageDialog(null, "O número de endereço e inválido");
-      }else{
-         Supervisor supervisor = new Supervisor();
-         supervisor.setNome(nome);
-         supervisor.setLogin(login);
-         supervisor.setCidade(cidade);
-         supervisor.setCpf(Util.sanitizeLong(Util.formatarCPF(cpf)));
-         supervisor.setDataNascimento(Util.formatData(nasc));
-         supervisor.setSenha(Util.md5(senha));
-         supervisor.setUf(estado);
-         supervisor.setSexo(sexo);
-         supervisor.setTelefone(celular);
-         supervisor.setEnderecoNumero(Util.sanitizeInt(numero));
-         supervisor.setEndereco(endereco);
-         supervisor.setComplemento(complemento);
-         supervisor.setBairro(bairro);
-         supervisor.setEmail(email);
-         
-         dao.salvar(supervisor);
-         this.setVisible(false);
-      }
+    
+    private void cadastrar() {
+        String login = tf_login.getText().trim();
+        String senha = tfsenha.getText().trim();
+        String nome = tfnome.getText().trim();
+        String cpf = tfcpf.getText().trim();
+        String nasc = tfnasc_aluno.getText().trim();
+        char sexo;
+
+        if (tfradio_masculino.isSelected()) {
+            sexo = 'M';
+        } else {
+            sexo = 'F';
+        }
+        String rg = tfrg_aluno.getText().trim();
+        String email = tfemail_aluno.getText().trim();
+        String turno = tfturno.getSelectedItem().toString();
+        String celular = tfcelular_aluno.getText().trim();
+        String endereco = tfendereco_aluno.getText().trim();
+        String bairro = tfbairro_aluno.getText().trim();
+        String complemento = tfcomplemento_aluno.getText().trim();
+        String estado = tfestado.getSelectedItem().toString();
+        String cidade = tfcidade.getSelectedItem().toString();
+        String numero = tfnumero_aluno.getText().trim();
+
+        if (!Util.chkVazio(login)) {
+            JOptionPane.showMessageDialog(null, "O campo login e obrigatório");
+        } else if (!Util.chkVazio(nome)) {
+            JOptionPane.showMessageDialog(null, "O campo nome e obrigatório");
+        } else if (!Util.chkVazio(senha)) {
+            JOptionPane.showMessageDialog(null, "O campo senha e obrigatório");
+        } else if (!senha.equals(tfconfirma_aluno.getText().trim())) {
+            JOptionPane.showMessageDialog(null, "As senhas não coincidem");
+        } else if (!Util.chkVazio(cpf)) {
+            JOptionPane.showMessageDialog(null, "O campo cpf e obrigatório");
+        } else if (!Util.CPF(Util.formatarCPF(String.valueOf(cpf)))) {
+            JOptionPane.showMessageDialog(null, "O Cpf e inválido");
+        } else if (Util.chkVazio(numero) && !Util.isIntegerValid(numero)) {
+            JOptionPane.showMessageDialog(null, "O número de endereço e inválido");
+        } else {
+
+            supervisor.setNome(nome);
+            supervisor.setLogin(login);
+            supervisor.setCidade(cidade);
+            supervisor.setCpf(Util.sanitizeLong(Util.formatarCPF(cpf)));
+            supervisor.setDataNascimento(Util.formatData(nasc));
+            supervisor.setSenha(Util.md5(senha));
+            supervisor.setUf(estado);
+            supervisor.setSexo(sexo);
+            supervisor.setTelefone(celular);
+            supervisor.setEnderecoNumero(Util.sanitizeInt(numero));
+            supervisor.setEndereco(endereco);
+            supervisor.setComplemento(complemento);
+            supervisor.setBairro(bairro);
+            supervisor.setEmail(email);
+            dao.salvar(supervisor);
+            btLimparActionPerformed(null);
+
+        }
     }
 
     /**
@@ -147,8 +152,10 @@ public class CadSupervisor extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setModal(true);
 
         jPanel1.setBackground(new java.awt.Color(35, 110, 230));
 
@@ -515,11 +522,26 @@ public class CadSupervisor extends javax.swing.JDialog {
         jButton3.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(35, 110, 231));
         jButton3.setText("PESQUISAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(35, 110, 231));
         jButton4.setText("CANCELAR");
+
+        btLimpar.setBackground(new java.awt.Color(255, 255, 255));
+        btLimpar.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
+        btLimpar.setForeground(new java.awt.Color(35, 110, 231));
+        btLimpar.setText("LIMPAR");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -531,9 +553,10 @@ public class CadSupervisor extends javax.swing.JDialog {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(137, 137, 137)
+                        .addComponent(btLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)))
@@ -550,7 +573,8 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
         );
 
@@ -572,6 +596,24 @@ public class CadSupervisor extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         cadastrar();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        List<Supervisor> lista;
+        lista = (dao.listar());
+        SupervisorTableModel itm = new SupervisorTableModel(lista);
+        Object o = PesqSupervisor.exibeTela(itm, "Supervisor");
+        if (o != null) {
+            supervisor = dao.carregarObjetoDoBanco("id", o);
+            tfnome.setText(supervisor.getNome());
+            tf_login.setText(supervisor.getLogin());
+            tfcpf.setText(String.valueOf(supervisor.getCpf()));
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+        limparCampos();
+    }//GEN-LAST:event_btLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -619,6 +661,7 @@ public class CadSupervisor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
