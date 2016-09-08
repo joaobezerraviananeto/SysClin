@@ -39,7 +39,9 @@ public class login extends javax.swing.JFrame {
         if (dao.isLoginValido(jTextField1.getText(), Util.md5(jPasswordField1.getText()))) {
             JOptionPane.showMessageDialog(null, "Deu certo");
         } else {
-            JOptionPane.showMessageDialog(null, "Deu errado");
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos", "Falha no login", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jPasswordField1.setText("");
         }
     }
 
