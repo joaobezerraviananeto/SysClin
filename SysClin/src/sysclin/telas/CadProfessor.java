@@ -9,14 +9,14 @@ package sysclin.telas;
  *
  * @author Vandeilson
  */
-public class CadProfessor extends javax.swing.JFrame {
+public class CadProfessor extends javax.swing.JDialog {
 
     /**
      * Creates new form CadProfessor
      */
-    public CadProfessor() {
-        initComponents();   
-        this.setTitle("Sysclin - Cadastro de professor");
+    public CadProfessor(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
     }
 
     /**
@@ -28,7 +28,6 @@ public class CadProfessor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfsexo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -79,13 +78,13 @@ public class CadProfessor extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         tfnumero_prof = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(35, 110, 230));
+        jPanel1.setBackground(new java.awt.Color(35, 110, 231));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,66 +101,67 @@ public class CadProfessor extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(119, 119, 119)
+                .addGap(146, 146, 146)
                 .addComponent(jLabel22)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel22))
+                .addComponent(jLabel22)
+                .addContainerGap())
         );
 
         jTabbedPane1.setForeground(new java.awt.Color(35, 110, 231));
-        jTabbedPane1.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel11.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(35, 110, 231));
         jLabel11.setText("Nome Completo:");
 
-        jLabel12.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(35, 110, 231));
         jLabel12.setText("Data Nascimento:");
 
-        jLabel13.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(35, 110, 231));
         jLabel13.setText("Sexo:");
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jRadioButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(35, 110, 231));
         jRadioButton2.setText("F");
 
         jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jRadioButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jRadioButton3.setForeground(new java.awt.Color(35, 110, 231));
         jRadioButton3.setText("M");
 
-        jLabel14.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(35, 110, 231));
         jLabel14.setText("RG:");
 
-        jLabel15.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(35, 110, 231));
         jLabel15.setText("CPF:");
 
-        jLabel16.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(35, 110, 231));
         jLabel16.setText("Email:");
 
-        jLabel17.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(35, 110, 231));
         jLabel17.setText("Nome de Usuário:");
 
-        jLabel20.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(35, 110, 231));
         jLabel20.setText("Senha:");
 
-        jLabel21.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(35, 110, 231));
         jLabel21.setText("Confirmar Senha:");
 
@@ -174,7 +174,7 @@ public class CadProfessor extends javax.swing.JFrame {
         tfrg_prof.setForeground(new java.awt.Color(35, 110, 231));
         tfrg_prof.setText("                            -        ");
 
-        jLabel23.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(35, 110, 231));
         jLabel23.setText("Especialidade:");
 
@@ -279,47 +279,47 @@ public class CadProfessor extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel18.setFont(new java.awt.Font("Centaur", 3, 20)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(35, 110, 231));
         jLabel18.setText("Telefones");
 
-        jLabel2.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(35, 110, 231));
         jLabel2.setText("Celular:");
 
-        jLabel3.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(35, 110, 231));
         jLabel3.setText("Casa:");
 
-        jLabel4.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(35, 110, 231));
         jLabel4.setText("Trabalho:");
 
-        jLabel19.setFont(new java.awt.Font("Centaur", 3, 20)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(35, 110, 231));
         jLabel19.setText("Endereço");
 
-        jLabel5.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(35, 110, 231));
         jLabel5.setText("Endereço:");
 
-        jLabel6.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(35, 110, 231));
         jLabel6.setText("Nº:");
 
-        jLabel7.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(35, 110, 231));
         jLabel7.setText("Bairro:");
 
-        jLabel8.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(35, 110, 231));
         jLabel8.setText("Complemento:");
 
-        jLabel9.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(35, 110, 231));
         jLabel9.setText("Estado:");
 
-        jLabel10.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(35, 110, 231));
         jLabel10.setText("Cidade:");
 
@@ -333,7 +333,7 @@ public class CadProfessor extends javax.swing.JFrame {
         tftrabalho_prof.setText(" (   )             -               ");
 
         tfsms_prof.setBackground(new java.awt.Color(255, 255, 255));
-        tfsms_prof.setFont(new java.awt.Font("Centaur", 2, 18)); // NOI18N
+        tfsms_prof.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tfsms_prof.setForeground(new java.awt.Color(35, 110, 231));
         tfsms_prof.setText("Desejo Receber SMS");
 
@@ -341,11 +341,11 @@ public class CadProfessor extends javax.swing.JFrame {
 
         tfbairro_prof.setText(" ");
 
-        jComboBox1.setFont(new java.awt.Font("Centaur", 2, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(35, 110, 231));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CE", "SP", "RJ" }));
 
-        jComboBox2.setFont(new java.awt.Font("Centaur", 2, 14)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(35, 110, 231));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ICÓ", "IGUATU", "JUAZEIRO DO NORTE" }));
 
@@ -403,13 +403,13 @@ public class CadProfessor extends javax.swing.JFrame {
                                 .addComponent(tfsms_prof))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,38 +461,40 @@ public class CadProfessor extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("INFORMAÇÕES", jPanel4);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(35, 110, 231));
-        jButton2.setText("SALVAR");
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(35, 110, 231));
+        jButton4.setText("CANCELAR");
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(35, 110, 231));
         jButton3.setText("PESQUISAR");
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Centaur", 3, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(35, 110, 231));
-        jButton4.setText("CANCELAR");
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(35, 110, 231));
+        jButton2.setText("SALVAR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTabbedPane1))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap())
+                        .addComponent(jButton2))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,10 +505,11 @@ public class CadProfessor extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -514,15 +517,11 @@ public class CadProfessor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -556,10 +555,17 @@ public class CadProfessor extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadProfessor().setVisible(true);
+                CadProfessor dialog = new CadProfessor(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -615,7 +621,6 @@ public class CadProfessor extends javax.swing.JFrame {
     private javax.swing.JTextField tfnumero_prof;
     private javax.swing.JFormattedTextField tfrg_prof;
     private javax.swing.JPasswordField tfsenha_prof;
-    private javax.swing.ButtonGroup tfsexo;
     private javax.swing.JCheckBox tfsms_prof;
     private javax.swing.JFormattedTextField tftrabalho_prof;
     private javax.swing.JTextField tfusuario_prof;
