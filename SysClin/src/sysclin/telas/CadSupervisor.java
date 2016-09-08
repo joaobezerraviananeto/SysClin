@@ -6,6 +6,7 @@
 package sysclin.telas;
 
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sysclin.supervisor.Supervisor;
 import sysclin.supervisor.SupervisorDAO;
@@ -24,6 +25,7 @@ public class CadSupervisor extends javax.swing.JDialog {
     public CadSupervisor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logobrancop.jpg")).getImage());
         this.setTitle("Sysclin - Cadastro de supervisor");
     }
 
@@ -103,6 +105,7 @@ public class CadSupervisor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -201,6 +204,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel13.setText("Sexo:");
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(35, 110, 231));
         jRadioButton2.setText("F");
@@ -211,6 +215,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         });
 
         tfradio_masculino.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(tfradio_masculino);
         tfradio_masculino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tfradio_masculino.setForeground(new java.awt.Color(35, 110, 231));
         tfradio_masculino.setText("M");
@@ -692,6 +697,7 @@ public class CadSupervisor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
