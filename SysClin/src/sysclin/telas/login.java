@@ -5,7 +5,9 @@
  */
 package sysclin.telas;
 
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sysclin.supervisor.SupervisorDAO;
 import sysclin.usuario.UsuarioDAO;
@@ -23,7 +25,8 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents(); 
         dao = new UsuarioDAO();       
-        verificarExistenciaSupervisor();      
+        verificarExistenciaSupervisor();  
+        this.setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logobrancop.jpg")).getImage());
         this.setTitle("Sysclin - Login");
     }
 
@@ -40,6 +43,7 @@ public class login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Deu certo");
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos", "Falha no login", JOptionPane.ERROR_MESSAGE);
+            Toolkit.getDefaultToolkit().beep();
             jTextField1.setText("");
             jPasswordField1.setText("");
         }

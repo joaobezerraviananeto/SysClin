@@ -244,7 +244,7 @@ public class PesqSupervisor extends javax.swing.JDialog {
         if (linha == -1) {
             JOptionPane.showMessageDialog(rootPane, "Selecione alguma linha!");
         } else if (JOptionPane.showConfirmDialog(rootPane, "Seja realmente excluir este supervisor?",
-                "Excluir?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            "Excluir?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             supervisor = dao.carregarObjetoDoBanco("id", idValorSelecionado);
             dao.remover(supervisor);
             atualizarTabela();
@@ -303,7 +303,7 @@ public class PesqSupervisor extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 PesqSupervisor dialog = new PesqSupervisor();
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
