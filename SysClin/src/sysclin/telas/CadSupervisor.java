@@ -37,13 +37,13 @@ public class CadSupervisor extends javax.swing.JDialog {
         tfcpf.setText("");
         tfrg.setText("");
         tfconfirma.setText("");
-        tfcidade.setSelectedItem(null);
+        tfcidade.setSelectedIndex(0);
         tfemail.setText("");
         tfnasc.setText("");
         tfRadiofeminino.setSelected(false);
         tfradio_masculino.setSelected(false);
         tfendereco.setText("");
-        tfestado.setSelectedItem(null);
+        tfestado.setSelectedIndex(0);
         tfnumero.setText("");
         tfcomplemento.setText("");
         tftelefone.setText("");
@@ -90,7 +90,6 @@ public class CadSupervisor extends javax.swing.JDialog {
         } else if (Util.chkVazio(numero) && !Util.isIntegerValid(numero)) {
             JOptionPane.showMessageDialog(null, "O número de endereço e inválido");
         } else {
-
             supervisor.setNome(nome);
             supervisor.setLogin(login);
             supervisor.setCidade(cidade);
@@ -434,6 +433,11 @@ public class CadSupervisor extends javax.swing.JDialog {
         tfcidade.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tfcidade.setForeground(new java.awt.Color(35, 110, 231));
         tfcidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ICÓ", "IGUATU", "JUAZEIRO DO NORTE" }));
+        tfcidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfcidadeActionPerformed(evt);
+            }
+        });
 
         tfnumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -641,10 +645,13 @@ public class CadSupervisor extends javax.swing.JDialog {
         List<Supervisor> lista;
         lista = (dao.listar());
         SupervisorTableModel itm = new SupervisorTableModel(lista);
-        Object o = PesqSupervisor.exibeTela(itm, "Supervisor");
-        if (o != null) {
-            supervisor = dao.carregarObjetoDoBanco("id", o);
+        Object selecao = PesqSupervisor.exibeTela(itm, "Supervisor");
+        if (selecao != null) {
+            supervisor = dao.carregarObjetoDoBanco("id", selecao);
             tfnome.setText(supervisor.getNome());
+            tf_login.setText(supervisor.getLogin());
+            tfbairro.setText(supervisor.getBairro());
+            tfcomplemento.setText(supervisor.getComplemento());
             tf_login.setText(supervisor.getLogin());
             tfcpf.setText(String.valueOf(supervisor.getCpf()));
         }
@@ -678,6 +685,10 @@ public class CadSupervisor extends javax.swing.JDialog {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tfcidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfcidadeActionPerformed
 
     /**
      * @param args the command line arguments
