@@ -32,7 +32,21 @@ public class CadSupervisor extends javax.swing.JDialog {
     public void limparCampos(){
         tf_login.setText("");
         tfsenha.setText("");
-        tfbairro_aluno.setText("");
+        tfbairro.setText("");
+        tfnome.setText("");
+        tfcpf.setText("");
+        tfrg.setText("");
+        tfconfirma.setText("");
+        tfcidade.setSelectedItem(null);
+        tfemail.setText("");
+        tfnasc.setText("");
+        tfRadiofeminino.setSelected(false);
+        tfradio_masculino.setSelected(false);
+        tfendereco.setText("");
+        tfestado.setSelectedItem(null);
+        tfnumero.setText("");
+        tfcomplemento.setText("");
+        tftelefone.setText("");
         supervisor = new Supervisor();
     }
     
@@ -42,7 +56,8 @@ public class CadSupervisor extends javax.swing.JDialog {
         String senha = tfsenha.getText().trim();
         String nome = tfnome.getText().trim();
         String cpf = tfcpf.getText().trim();
-        String nasc = tfnasc_aluno.getText().trim();
+        String rg = tfrg.getText().trim();
+        String nasc = tfnasc.getText().trim();
         char sexo;
 
         if (tfradio_masculino.isSelected()) {
@@ -50,15 +65,15 @@ public class CadSupervisor extends javax.swing.JDialog {
         } else {
             sexo = 'F';
         }
-        String rg = tfrg_aluno.getText().trim();
-        String email = tfemail_supervisor.getText().trim();
-        String celular = tfcelular_aluno.getText().trim();
-        String endereco = tfendereco_aluno.getText().trim();
-        String bairro = tfbairro_aluno.getText().trim();
-        String complemento = tfcomplemento_aluno.getText().trim();
+        
+        String email = tfemail.getText().trim();
+        String celular = tftelefone.getText().trim();
+        String endereco = tfendereco.getText().trim();
+        String bairro = tfbairro.getText().trim();
+        String complemento = tfcomplemento.getText().trim();
         String estado = tfestado.getSelectedItem().toString();
         String cidade = tfcidade.getSelectedItem().toString();
-        String numero = tfnumero_aluno.getText().trim();
+        String numero = tfnumero.getText().trim();
 
         if (!Util.chkVazio(login)) {
             JOptionPane.showMessageDialog(null, "O campo login e obrigatório");
@@ -66,7 +81,7 @@ public class CadSupervisor extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "O campo nome e obrigatório");
         } else if (!Util.chkVazio(senha)) {
             JOptionPane.showMessageDialog(null, "O campo senha e obrigatório");
-        } else if (!senha.equals(tfconfirma_aluno.getText().trim())) {
+        } else if (!senha.equals(tfconfirma.getText().trim())) {
             JOptionPane.showMessageDialog(null, "As senhas não coincidem");
         } else if (!Util.chkVazio(cpf)) {
             JOptionPane.showMessageDialog(null, "O campo cpf e obrigatório");
@@ -89,6 +104,7 @@ public class CadSupervisor extends javax.swing.JDialog {
             supervisor.setEndereco(endereco);
             supervisor.setComplemento(complemento);
             supervisor.setBairro(bairro);
+            supervisor.setRg(rg);
             supervisor.setEmail(email);
             dao.salvar(supervisor);
             btLimparActionPerformed(null);
@@ -115,7 +131,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        tfRadiofeminino = new javax.swing.JRadioButton();
         tfradio_masculino = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -124,10 +140,10 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel21 = new javax.swing.JLabel();
         tf_login = new javax.swing.JTextField();
         tfnome = new javax.swing.JTextField();
-        tfnasc_aluno = new javax.swing.JFormattedTextField();
+        tfnasc = new javax.swing.JFormattedTextField();
         tfcpf = new javax.swing.JFormattedTextField();
-        tfrg_aluno = new javax.swing.JFormattedTextField();
-        tfconfirma_aluno = new javax.swing.JPasswordField();
+        tfrg = new javax.swing.JFormattedTextField();
+        tfconfirma = new javax.swing.JPasswordField();
         tfsenha = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -138,15 +154,15 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        tfcelular_aluno = new javax.swing.JFormattedTextField();
-        tfendereco_aluno = new javax.swing.JTextField();
-        tfcomplemento_aluno = new javax.swing.JTextField();
-        tfbairro_aluno = new javax.swing.JTextField();
+        tftelefone = new javax.swing.JFormattedTextField();
+        tfendereco = new javax.swing.JTextField();
+        tfcomplemento = new javax.swing.JTextField();
+        tfbairro = new javax.swing.JTextField();
         tfestado = new javax.swing.JComboBox();
         tfcidade = new javax.swing.JComboBox();
-        tfnumero_aluno = new javax.swing.JTextField();
+        tfnumero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        tfemail_supervisor = new javax.swing.JTextField();
+        tfemail = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -203,14 +219,14 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel13.setForeground(new java.awt.Color(35, 110, 231));
         jLabel13.setText("Sexo:");
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(35, 110, 231));
-        jRadioButton2.setText("F");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        tfRadiofeminino.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(tfRadiofeminino);
+        tfRadiofeminino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        tfRadiofeminino.setForeground(new java.awt.Color(35, 110, 231));
+        tfRadiofeminino.setText("F");
+        tfRadiofeminino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                tfRadiofemininoActionPerformed(evt);
             }
         });
 
@@ -244,16 +260,16 @@ public class CadSupervisor extends javax.swing.JDialog {
 
         tfnome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        tfnasc_aluno.setForeground(new java.awt.Color(35, 110, 231));
+        tfnasc.setForeground(new java.awt.Color(35, 110, 231));
         try {
-            tfnasc_aluno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfnasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfnasc_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        tfnasc_aluno.addActionListener(new java.awt.event.ActionListener() {
+        tfnasc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfnasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfnasc_alunoActionPerformed(evt);
+                tfnascActionPerformed(evt);
             }
         });
 
@@ -265,13 +281,13 @@ public class CadSupervisor extends javax.swing.JDialog {
         }
         tfcpf.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        tfrg_aluno.setForeground(new java.awt.Color(35, 110, 231));
-        tfrg_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfrg.setForeground(new java.awt.Color(35, 110, 231));
+        tfrg.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        tfconfirma_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        tfconfirma_aluno.addActionListener(new java.awt.event.ActionListener() {
+        tfconfirma.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfconfirma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfconfirma_alunoActionPerformed(evt);
+                tfconfirmaActionPerformed(evt);
             }
         });
 
@@ -294,13 +310,13 @@ public class CadSupervisor extends javax.swing.JDialog {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addGap(8, 8, 8)
-                                .addComponent(tfconfirma_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfconfirma, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tfradio_masculino)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfRadiofeminino, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(6, 6, 6)
@@ -315,7 +331,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfrg_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfrg, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(26, 26, 26)
@@ -325,7 +341,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfnasc_aluno, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                                .addComponent(tfnasc, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(18, 18, 18)
@@ -344,9 +360,9 @@ public class CadSupervisor extends javax.swing.JDialog {
                     .addComponent(jLabel15)
                     .addComponent(tfcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(tfrg_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(tfnasc_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfnasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,10 +372,10 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfconfirma_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfconfirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(tfradio_masculino)
-                    .addComponent(jRadioButton2))
+                    .addComponent(tfRadiofeminino))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -395,17 +411,21 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel10.setForeground(new java.awt.Color(35, 110, 231));
         jLabel10.setText("Cidade:");
 
-        tfcelular_aluno.setForeground(new java.awt.Color(35, 110, 231));
-        tfcelular_aluno.setText(" (   )             -               ");
-        tfcelular_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tftelefone.setForeground(new java.awt.Color(35, 110, 231));
+        try {
+            tftelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tftelefone.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        tfendereco_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfendereco.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        tfcomplemento_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        tfcomplemento_aluno.setText(" ");
+        tfcomplemento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfcomplemento.setText(" ");
 
-        tfbairro_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        tfbairro_aluno.setText(" ");
+        tfbairro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfbairro.setText(" ");
 
         tfestado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tfestado.setForeground(new java.awt.Color(35, 110, 231));
@@ -415,16 +435,16 @@ public class CadSupervisor extends javax.swing.JDialog {
         tfcidade.setForeground(new java.awt.Color(35, 110, 231));
         tfcidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ICÓ", "IGUATU", "JUAZEIRO DO NORTE" }));
 
-        tfnumero_aluno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfnumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(35, 110, 231));
         jLabel3.setText("Email:");
 
-        tfemail_supervisor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        tfemail_supervisor.addActionListener(new java.awt.event.ActionListener() {
+        tfemail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tfemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfemail_supervisorActionPerformed(evt);
+                tfemailActionPerformed(evt);
             }
         });
 
@@ -438,12 +458,12 @@ public class CadSupervisor extends javax.swing.JDialog {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfendereco_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tfbairro_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfbairro, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -451,8 +471,8 @@ public class CadSupervisor extends javax.swing.JDialog {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfnumero_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfcomplemento_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfcomplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(67, 67, 67))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,8 +484,8 @@ public class CadSupervisor extends javax.swing.JDialog {
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfcelular_aluno)
-                    .addComponent(tfemail_supervisor))
+                    .addComponent(tftelefone)
+                    .addComponent(tfemail))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -484,19 +504,19 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tfendereco_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfendereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(tfnumero_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfnumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(tfbairro_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfbairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(tfcomplemento_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfcomplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tfcelular_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tftelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(tfcidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -504,7 +524,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                     .addComponent(tfestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel3)
-                    .addComponent(tfemail_supervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -545,6 +565,11 @@ public class CadSupervisor extends javax.swing.JDialog {
         jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(35, 110, 231));
         jButton4.setText("CANCELAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         btLimpar.setBackground(new java.awt.Color(255, 255, 255));
         btLimpar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -630,25 +655,29 @@ public class CadSupervisor extends javax.swing.JDialog {
         limparCampos();
     }//GEN-LAST:event_btLimparActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void tfRadiofemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRadiofemininoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_tfRadiofemininoActionPerformed
 
-    private void tfconfirma_alunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfconfirma_alunoActionPerformed
+    private void tfconfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfconfirmaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfconfirma_alunoActionPerformed
+    }//GEN-LAST:event_tfconfirmaActionPerformed
 
     private void tfsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfsenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfsenhaActionPerformed
 
-    private void tfnasc_alunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnasc_alunoActionPerformed
+    private void tfnascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnascActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfnasc_alunoActionPerformed
+    }//GEN-LAST:event_tfnascActionPerformed
 
-    private void tfemail_supervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfemail_supervisorActionPerformed
+    private void tfemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfemailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfemail_supervisorActionPerformed
+    }//GEN-LAST:event_tfemailActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -724,23 +753,23 @@ public class CadSupervisor extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JRadioButton tfRadiofeminino;
     private javax.swing.JTextField tf_login;
-    private javax.swing.JTextField tfbairro_aluno;
-    private javax.swing.JFormattedTextField tfcelular_aluno;
+    private javax.swing.JTextField tfbairro;
     private javax.swing.JComboBox tfcidade;
-    private javax.swing.JTextField tfcomplemento_aluno;
-    private javax.swing.JPasswordField tfconfirma_aluno;
+    private javax.swing.JTextField tfcomplemento;
+    private javax.swing.JPasswordField tfconfirma;
     private javax.swing.JFormattedTextField tfcpf;
-    private javax.swing.JTextField tfemail_supervisor;
-    private javax.swing.JTextField tfendereco_aluno;
+    private javax.swing.JTextField tfemail;
+    private javax.swing.JTextField tfendereco;
     private javax.swing.JComboBox tfestado;
-    private javax.swing.JFormattedTextField tfnasc_aluno;
+    private javax.swing.JFormattedTextField tfnasc;
     private javax.swing.JTextField tfnome;
-    private javax.swing.JTextField tfnumero_aluno;
+    private javax.swing.JTextField tfnumero;
     private javax.swing.JRadioButton tfradio_masculino;
-    private javax.swing.JFormattedTextField tfrg_aluno;
+    private javax.swing.JFormattedTextField tfrg;
     private javax.swing.JPasswordField tfsenha;
+    private javax.swing.JFormattedTextField tftelefone;
     // End of variables declaration//GEN-END:variables
 }

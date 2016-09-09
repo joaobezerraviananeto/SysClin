@@ -28,6 +28,10 @@ public abstract class Usuario {
     @Column (length = 11)
     private long cpf;
     
+    
+    @Column (length = 11)
+    private String rg;
+    
     @Column (length=20)
     private String telefone;
     
@@ -214,6 +218,16 @@ public abstract class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+   
 
       
     

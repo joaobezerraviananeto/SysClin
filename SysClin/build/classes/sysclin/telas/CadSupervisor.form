@@ -181,13 +181,13 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                          <Component id="tfconfirma_aluno" min="-2" pref="228" max="-2" attributes="0"/>
+                                          <Component id="tfconfirma" min="-2" pref="228" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jLabel13" min="-2" pref="63" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="tfradio_masculino" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton2" min="-2" pref="42" max="-2" attributes="0"/>
+                                          <Component id="tfRadiofeminino" min="-2" pref="42" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
@@ -206,7 +206,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="tfrg_aluno" min="-2" pref="105" max="-2" attributes="0"/>
+                                          <Component id="tfrg" min="-2" pref="105" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
@@ -219,7 +219,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="tfnasc_aluno" pref="115" max="32767" attributes="0"/>
+                                          <Component id="tfnasc" pref="115" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
@@ -246,9 +246,9 @@
                               <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfcpf" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfrg_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfrg" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfnasc_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfnasc" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -260,10 +260,10 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel21" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="tfconfirma_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfconfirma" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfradio_masculino" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfRadiofeminino" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
@@ -304,7 +304,7 @@
                     <Property name="text" type="java.lang.String" value="Sexo:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="tfRadiofeminino">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -321,7 +321,7 @@
                     <Property name="text" type="java.lang.String" value="F"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfRadiofemininoActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="tfradio_masculino">
@@ -410,7 +410,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="tfnasc_aluno">
+                <Component class="javax.swing.JFormattedTextField" name="tfnasc">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="e7" green="6e" red="23" type="rgb"/>
@@ -423,7 +423,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfnasc_alunoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfnascActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="tfcpf">
@@ -439,7 +439,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="tfrg_aluno">
+                <Component class="javax.swing.JFormattedTextField" name="tfrg">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="e7" green="6e" red="23" type="rgb"/>
@@ -449,14 +449,14 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="tfconfirma_aluno">
+                <Component class="javax.swing.JPasswordField" name="tfconfirma">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfconfirma_alunoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfconfirmaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="tfsenha">
@@ -509,13 +509,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tfendereco_aluno" min="-2" pref="303" max="-2" attributes="0"/>
+                                      <Component id="tfendereco" min="-2" pref="303" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="tfbairro_aluno" min="-2" pref="207" max="-2" attributes="0"/>
+                                      <Component id="tfbairro" min="-2" pref="207" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -523,9 +523,9 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="tfnumero_aluno" min="-2" pref="97" max="-2" attributes="0"/>
+                                              <Component id="tfnumero" min="-2" pref="97" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="tfcomplemento_aluno" min="-2" pref="143" max="-2" attributes="0"/>
+                                          <Component id="tfcomplemento" min="-2" pref="143" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                   </Group>
@@ -544,8 +544,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfcelular_aluno" max="32767" attributes="0"/>
-                                  <Component id="tfemail_supervisor" max="32767" attributes="0"/>
+                                  <Component id="tftelefone" max="32767" attributes="0"/>
+                                  <Component id="tfemail" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -570,21 +570,21 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfendereco_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfendereco" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfnumero_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfnumero" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfbairro_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfbairro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfcomplemento_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfcomplemento" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfcelular_aluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tftelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tfcidade" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -593,7 +593,7 @@
                                   <Component id="tfestado" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfemail_supervisor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfemail" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="37" max="32767" attributes="0"/>
                           </Group>
@@ -678,25 +678,27 @@
                         <Property name="text" type="java.lang.String" value="Cidade:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="tfcelular_aluno">
+                    <Component class="javax.swing.JFormattedTextField" name="tftelefone">
                       <Properties>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="e7" green="6e" red="23" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value=" (   )             -               "/>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                          <Format format="(##)#####-####" subtype="-1" type="5"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfendereco_aluno">
+                    <Component class="javax.swing.JTextField" name="tfendereco">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfcomplemento_aluno">
+                    <Component class="javax.swing.JTextField" name="tfcomplemento">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="0"/>
@@ -704,7 +706,7 @@
                         <Property name="text" type="java.lang.String" value=" "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfbairro_aluno">
+                    <Component class="javax.swing.JTextField" name="tfbairro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="0"/>
@@ -746,7 +748,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfnumero_aluno">
+                    <Component class="javax.swing.JTextField" name="tfnumero">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="0"/>
@@ -764,14 +766,14 @@
                         <Property name="text" type="java.lang.String" value="Email:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfemail_supervisor">
+                    <Component class="javax.swing.JTextField" name="tfemail">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfemail_supervisorActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfemailActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -827,6 +829,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CANCELAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btLimpar">
           <Properties>
