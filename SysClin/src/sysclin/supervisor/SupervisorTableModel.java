@@ -10,7 +10,7 @@ public class SupervisorTableModel extends AbstractTableModel {
 
     public SupervisorTableModel(List<Supervisor> supervisores) {
         this.supervisores = supervisores;
-        this.tituloColuas = new String[]{"Id", "Nome", "CPF"};
+        this.tituloColuas = new String[]{"Id", "Nome", "CPF", "telefone"};
     }
 
     private List<Supervisor> supervisores;
@@ -38,6 +38,8 @@ public class SupervisorTableModel extends AbstractTableModel {
                 return supervisor.getNome();
             case 2:
                 return supervisor.getCpf();
+            case 3:
+                return supervisor.getTelefone();
             default:
                 return null;
         }
@@ -53,6 +55,8 @@ public class SupervisorTableModel extends AbstractTableModel {
                 return tituloColuas[1];
             case 2:
                 return tituloColuas[2];
+            case 3:
+                return tituloColuas[3];
             default:
                 return null;
         }
