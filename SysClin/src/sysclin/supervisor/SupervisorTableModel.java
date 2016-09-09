@@ -17,7 +17,7 @@ public class SupervisorTableModel extends AbstractTableModel {
     private final String[] tituloColuas;
 
     @Override
-    /*get row pega o numero de linhas*/
+    /*get row pega o numero de linhas.*/
     public int getRowCount() {
         return supervisores.size();
     }
