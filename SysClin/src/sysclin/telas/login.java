@@ -40,7 +40,7 @@ public class login extends javax.swing.JFrame {
 
     private void realizarLogin() {
         if (dao.isLoginValido(jTextField1.getText(), Util.md5(jPasswordField1.getText()))) {
-            JOptionPane.showMessageDialog(null, "Deu certo");
+           new Principal().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos", "Falha no login", JOptionPane.ERROR_MESSAGE);
             Toolkit.getDefaultToolkit().beep();
