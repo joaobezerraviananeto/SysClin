@@ -1,36 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sysclin.telas;
 
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sysclin.supervisor.Supervisor;
 import sysclin.supervisor.SupervisorDAO;
-import sysclin.supervisor.SupervisorTableModel;
 import sysclin.util.Util;
 
-/**
- *
- * @author João
- */
 public class CadSupervisor extends javax.swing.JDialog {
 
     Supervisor supervisor = new Supervisor();
-    SupervisorDAO dao  = new SupervisorDAO();
+    SupervisorDAO supervisordao = new SupervisorDAO();
 
-    public CadSupervisor(java.awt.Frame parent, boolean modal) {
+    public CadSupervisor(java.awt.Frame parent, boolean modal, Supervisor supervisor) {
         super(parent, modal);
         initComponents();
+        this.supervisor = supervisor;
+        atualizaCampos();
         this.setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logobrancop.jpg")).getImage());
         this.setTitle("Sysclin - Cadastro de supervisor");
     }
 
-    public void limparCampos(){
-        tf_login.setText("");
+    public void limparCampos() {
+        tflogin.setText("");
         tfsenha.setText("");
         tfbairro.setText("");
         tfnome.setText("");
@@ -41,7 +32,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         tfemail.setText("");
         tfnasc.setText("");
         tfRadiofeminino.setSelected(false);
-        tfradio_masculino.setSelected(false);
+        tfRadioMasculino.setSelected(false);
         tfendereco.setText("");
         tfestado.setSelectedIndex(0);
         tfnumero.setText("");
@@ -49,10 +40,42 @@ public class CadSupervisor extends javax.swing.JDialog {
         tftelefone.setText("");
         supervisor = new Supervisor();
     }
-    
-    
+
+    /**
+     este metodo aualizara os campos
+     */
+    public void atualizaCampos() {
+        tfnome.setText(this.supervisor.getNome());
+        //duvida
+        tfRadiofeminino.setSelected(this.supervisor.getSexo());
+
+        tfbairro.setText(this.supervisor.getBairro());
+        tfcidade.setSelectedItem(this.supervisor.getCidade());
+        tfcomplemento.setText(this.supervisor.getComplemento());
+        //duvida
+        tfconfirma.setText(this.supervisor.getSenha());
+        //duvida
+        tfcpf.setText(this.supervisor.getCpf());
+
+        tfemail.setText(this.supervisor.getEmail());
+        tfendereco.setText(this.supervisor.getEndereco());
+        //
+        tfestado.setSelectedItem(this.supervisor.getEstado());
+        //
+        tfnasc.setText(this.supervisor.getDataNascimento());
+
+        tflogin.setText(this.supervisor.getLogin());
+        //
+        tfnumero.setText(this.supervisor.getEnderecoNumero());
+        //
+        tfRadioMasculino.setSelected(this.supervisor.getSexo());
+        tfrg.setText(this.supervisor.getRg());
+        tfsenha.setText(this.supervisor.getSenha());
+        tftelefone.setText(this.supervisor.getTelefone());
+    }
+
     private void cadastrar() {
-        String login = tf_login.getText().trim();
+        String login = tflogin.getText().trim();
         String senha = tfsenha.getText().trim();
         String nome = tfnome.getText().trim();
         String cpf = tfcpf.getText().trim();
@@ -60,12 +83,12 @@ public class CadSupervisor extends javax.swing.JDialog {
         String nasc = tfnasc.getText().trim();
         char sexo;
 
-        if (tfradio_masculino.isSelected()) {
+        if (tfRadioMasculino.isSelected()) {
             sexo = 'M';
         } else {
             sexo = 'F';
         }
-        
+
         String email = tfemail.getText().trim();
         String celular = tftelefone.getText().trim();
         String endereco = tfendereco.getText().trim();
@@ -96,7 +119,7 @@ public class CadSupervisor extends javax.swing.JDialog {
             supervisor.setCpf(Util.sanitizeLong(Util.formatarCPF(cpf)));
             supervisor.setDataNascimento(Util.formatData(nasc));
             supervisor.setSenha(Util.md5(senha));
-            supervisor.setUf(estado);
+            supervisor.setEstado(estado);
             supervisor.setSexo(sexo);
             supervisor.setTelefone(celular);
             supervisor.setEnderecoNumero(Util.sanitizeInt(numero));
@@ -105,8 +128,18 @@ public class CadSupervisor extends javax.swing.JDialog {
             supervisor.setBairro(bairro);
             supervisor.setRg(rg);
             supervisor.setEmail(email);
-            dao.salvar(supervisor);
-            btLimparActionPerformed(null);
+            if (supervisor.getId() == 0) {
+
+                supervisordao.adicionar(supervisor);
+                //estou limpando a variavel declarando uma nova instancia
+                supervisor = new Supervisor();
+                atualizaCampos();
+            } else {
+                supervisordao.atualizar(supervisor);
+                this.dispose();
+            }
+            //supervisordao.salvar(supervisor);
+            // btLimparActionPerformed(null);
 
         }
     }
@@ -131,13 +164,13 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         tfRadiofeminino = new javax.swing.JRadioButton();
-        tfradio_masculino = new javax.swing.JRadioButton();
+        tfRadioMasculino = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        tf_login = new javax.swing.JTextField();
+        tflogin = new javax.swing.JTextField();
         tfnome = new javax.swing.JTextField();
         tfnasc = new javax.swing.JFormattedTextField();
         tfcpf = new javax.swing.JFormattedTextField();
@@ -163,7 +196,6 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         tfemail = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
 
@@ -229,11 +261,11 @@ public class CadSupervisor extends javax.swing.JDialog {
             }
         });
 
-        tfradio_masculino.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(tfradio_masculino);
-        tfradio_masculino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        tfradio_masculino.setForeground(new java.awt.Color(35, 110, 231));
-        tfradio_masculino.setText("M");
+        tfRadioMasculino.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(tfRadioMasculino);
+        tfRadioMasculino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        tfRadioMasculino.setForeground(new java.awt.Color(35, 110, 231));
+        tfRadioMasculino.setText("M");
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(35, 110, 231));
@@ -255,7 +287,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         jLabel21.setForeground(new java.awt.Color(35, 110, 231));
         jLabel21.setText("Confirmar Senha:");
 
-        tf_login.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tflogin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         tfnome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -313,7 +345,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfradio_masculino)
+                                .addComponent(tfRadioMasculino)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tfRadiofeminino, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -334,7 +366,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(26, 26, 26)
-                                .addComponent(tf_login, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tflogin, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -364,7 +396,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                     .addComponent(tfnasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tflogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -373,7 +405,7 @@ public class CadSupervisor extends javax.swing.JDialog {
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfconfirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(tfradio_masculino)
+                    .addComponent(tfRadioMasculino)
                     .addComponent(tfRadiofeminino))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -555,16 +587,6 @@ public class CadSupervisor extends javax.swing.JDialog {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(35, 110, 231));
-        jButton3.setText("PESQUISAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(35, 110, 231));
@@ -593,13 +615,13 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)
-                        .addGap(18, 18, 18)
+                        .addGap(40, 40, 40)
                         .addComponent(btLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton2)
+                        .addGap(166, 166, 166))
                     .addComponent(jTabbedPane1)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -615,9 +637,8 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31))
+                .addGap(20, 20, 20))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Informações");
@@ -640,23 +661,6 @@ public class CadSupervisor extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         cadastrar();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        List<Supervisor> lista;
-        lista = (dao.listar());
-        SupervisorTableModel itm = new SupervisorTableModel(lista);
-        Object selecao = PesqSupervisor.exibeTela(itm, "Supervisor");
-        if (selecao != null) {
-            supervisor = dao.carregarObjetoDoBanco("id", selecao);
-            tfnome.setText(supervisor.getNome());
-            tf_login.setText(supervisor.getLogin());
-            tfbairro.setText(supervisor.getBairro());
-            tfcomplemento.setText(supervisor.getComplemento());
-            tf_login.setText(supervisor.getLogin());
-            tfcpf.setText(String.valueOf(supervisor.getCpf()));
-        }
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limparCampos();
@@ -683,7 +687,7 @@ public class CadSupervisor extends javax.swing.JDialog {
     }//GEN-LAST:event_tfemailActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tfcidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcidadeActionPerformed
@@ -723,7 +727,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadSupervisor dialog = new CadSupervisor(new javax.swing.JFrame(), true);
+                CadSupervisor dialog = new CadSupervisor(new javax.swing.JFrame(), true, new Supervisor());
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -739,7 +743,6 @@ public class CadSupervisor extends javax.swing.JDialog {
     private javax.swing.JButton btLimpar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -765,8 +768,8 @@ public class CadSupervisor extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JRadioButton tfRadioMasculino;
     private javax.swing.JRadioButton tfRadiofeminino;
-    private javax.swing.JTextField tf_login;
     private javax.swing.JTextField tfbairro;
     private javax.swing.JComboBox tfcidade;
     private javax.swing.JTextField tfcomplemento;
@@ -775,10 +778,10 @@ public class CadSupervisor extends javax.swing.JDialog {
     private javax.swing.JTextField tfemail;
     private javax.swing.JTextField tfendereco;
     private javax.swing.JComboBox tfestado;
+    private javax.swing.JTextField tflogin;
     private javax.swing.JFormattedTextField tfnasc;
     private javax.swing.JTextField tfnome;
     private javax.swing.JTextField tfnumero;
-    private javax.swing.JRadioButton tfradio_masculino;
     private javax.swing.JFormattedTextField tfrg;
     private javax.swing.JPasswordField tfsenha;
     private javax.swing.JFormattedTextField tftelefone;

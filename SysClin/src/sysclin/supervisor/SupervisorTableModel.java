@@ -61,5 +61,10 @@ public class SupervisorTableModel extends AbstractTableModel {
                 return null;
         }
     }
+    
+    public void atualizarlista(List lista) {
+        this.supervisores = lista;
+        fireTableDataChanged();
+    }
 
 }

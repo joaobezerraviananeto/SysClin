@@ -57,7 +57,7 @@ public abstract class Usuario {
     
     
     @Column (length = 2)
-    private String uf;
+    private String estado;
     
     
     @Column (length = 50)
@@ -139,12 +139,12 @@ public abstract class Usuario {
         this.cidade = cidade;
     }
 
-    public String getUf() {
-        return uf;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getLogin() {
@@ -163,20 +163,7 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    /**
-     * @return the enderecoNumero
-     */
-    public int getEnderecoNumero() {
-        return enderecoNumero;
-    }
-
-    /**
-     * @param enderecoNumero the enderecoNumero to set
-     */
-    public void setEnderecoNumero(int enderecoNumero) {
-        this.enderecoNumero = enderecoNumero;
-    }
-
+   
     /**
      * @return the complemento
      */
@@ -225,6 +212,14 @@ public abstract class Usuario {
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public int getEnderecoNumero() {
+        return enderecoNumero;
+    }
+
+    public void setEnderecoNumero(int enderecoNumero) {
+        this.enderecoNumero = enderecoNumero;
     }
 
    

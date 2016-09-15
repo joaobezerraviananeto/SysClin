@@ -97,7 +97,7 @@ public class CadAluno extends javax.swing.JDialog {
             supervisor.setCpf(Util.sanitizeLong(Util.formatarCPF(cpf)));
             supervisor.setDataNascimento(Util.formatData(nasc));
             supervisor.setSenha(Util.md5(senha));
-            supervisor.setUf(estado);
+            supervisor.setEstado(estado);
             supervisor.setSexo(sexo);
             supervisor.setTelefone(celular);
             supervisor.setEnderecoNumero(Util.sanitizeInt(numero));

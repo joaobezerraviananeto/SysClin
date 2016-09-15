@@ -8,7 +8,7 @@ public class SupervisorDAO extends GenericDAO<Supervisor> {
   public SupervisorDAO(){
       super(Supervisor.class);
   }
-  
+  /*
   public void salvar(Supervisor supervisor){
       if(supervisor.getId()==0){
           adicionar(supervisor);
@@ -18,6 +18,7 @@ public class SupervisorDAO extends GenericDAO<Supervisor> {
            JOptionPane.showMessageDialog(null, "Supervisor alterado com sucesso com Sucesso!");
       }
   }
+*/
   
   public boolean existeUmSupervisor(){
      return !listar().isEmpty();

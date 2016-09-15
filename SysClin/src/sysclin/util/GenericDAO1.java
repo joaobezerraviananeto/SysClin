@@ -1,4 +1,7 @@
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package sysclin.util;
 
 import java.util.Date;
@@ -11,7 +14,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 @SuppressWarnings("unchecked")
-public abstract class GenericDAO<T> {
+public abstract class GenericDAO1<T> {
 
     /*
      * Essa classe possui operações comuns a todas as classes persistentes
@@ -20,9 +23,9 @@ public abstract class GenericDAO<T> {
      */
     public Session sessao;
     public Transaction transacao;
-    public Class<T> classe;
+    private Class classe;
 
-    public GenericDAO(Class<T> classe) {
+    public GenericDAO1(Class classe) {
         this.classe = classe;
     }
 
