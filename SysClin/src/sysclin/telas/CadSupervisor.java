@@ -17,7 +17,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         this.supervisordao = new SupervisorDAO();
         this.usuariodao = new UsuarioDAO();
         this.primeiroCadastro = primeiroCadastro;
-        setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logo-2.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logo2.png")).getImage());
         setTitle("Sysclin - Cadastro de supervisor");
         atualizarCampos();
     }
@@ -74,6 +74,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         supervisor.setCidade(tfcidade.getSelectedItem().toString());
         supervisor.setEstado(tfestado.getSelectedItem().toString());
         supervisor.setEmail(tfemail.getText().trim());
+        
     }
 
     /**

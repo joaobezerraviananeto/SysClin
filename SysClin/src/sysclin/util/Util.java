@@ -365,8 +365,8 @@ public class Util {
     }
 
     public static String mascararCPF(String cpf) {
-        JFormattedTextField cpfFormat =  new javax.swing.JFormattedTextField();  
-        try {  
+        JFormattedTextField cpfFormat = new javax.swing.JFormattedTextField();
+        try {
             cpfFormat.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
             cpfFormat.setText(cpf);
             return cpfFormat.getText();
@@ -374,5 +374,22 @@ public class Util {
             Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+    }
+
+    public static boolean isEmailValido(String email) {
+        boolean possuiArroba = false;
+        boolean possuiCom = false;
+        String semArroba = email.replaceAll("@", "");
+
+        if (email.length() > semArroba.length()) {
+            possuiArroba = true;
+        }
+        
+        String semCom = email.replaceAll(".com", "");
+
+        if (email.length() > semCom.length()) {
+            possuiCom = true;
+        }
+        return possuiArroba && possuiCom;
     }
 }

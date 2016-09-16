@@ -1,23 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sysclin.telas;
 
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import sysclin.supervisor.Supervisor;
 import sysclin.supervisor.SupervisorDAO;
 import sysclin.usuario.UsuarioDAO;
 import sysclin.util.Util;
 
-/**
- *
- * @author Vandeilson
- */
+
 public class login extends javax.swing.JFrame {
 
     /**
@@ -26,7 +17,7 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
         dao = new UsuarioDAO();
-        setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logobrancop.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/sysclin/imagens/logo2.png")).getImage());
         setTitle("Sysclin - Login");
     }
 
@@ -50,7 +41,7 @@ public class login extends javax.swing.JFrame {
             new Principal().setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos", "Falha no login", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos", "Falha na autenticação", JOptionPane.ERROR_MESSAGE);
             //Toolkit.getDefaultToolkit().beep();
             TFLogin.setText("");
             TFSenha.setText("");
