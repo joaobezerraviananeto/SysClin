@@ -377,18 +377,18 @@ public class Util {
     }
 
     public static boolean isEmailValido(String email) {
-        boolean possuiArroba = false;
-        boolean possuiCom = false;
+        boolean possuiArroba = true;
+        boolean possuiCom = true;
         String semArroba = email.replaceAll("@", "");
 
         if (email.length() > semArroba.length()) {
-            possuiArroba = true;
+            possuiArroba = false;
         }
         
         String semCom = email.replaceAll(".com", "");
 
         if (email.length() > semCom.length()) {
-            possuiCom = true;
+            possuiCom = false;
         }
         return possuiArroba && possuiCom;
     }

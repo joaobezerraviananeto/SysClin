@@ -67,5 +67,21 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
             return 0;
         }
     }
+    public int isExistenteLogin(String login){
+    try {
+            setSessao(HibernateUtil.getSessionFactory().openSession());
+            setTransacao(getSessao().beginTransaction());
+            Criteria criteria = getSessao().createCriteria(Usuario.class);
+            Usuario usuario = (Usuario) criteria.add(Restrictions.eq("login", login)).uniqueResult();
+            if(usuario != null){
+              return usuario.getId();
+            }else{
+             return 0;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao realizar a operação"+e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return 0;
+        }
+    }
 
 }

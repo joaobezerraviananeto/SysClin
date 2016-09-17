@@ -128,9 +128,9 @@ public class CadSupervisor extends javax.swing.JDialog {
         tfnumero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         tfemail = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        btLimpar = new javax.swing.JButton();
+        jBSalvar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
+        jBLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
@@ -528,33 +528,33 @@ public class CadSupervisor extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Contato", jPanel4);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(35, 110, 231));
-        jButton2.setText("SALVAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBSalvar.setBackground(new java.awt.Color(255, 255, 255));
+        jBSalvar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jBSalvar.setForeground(new java.awt.Color(35, 110, 231));
+        jBSalvar.setText("SALVAR");
+        jBSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBSalvarActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(35, 110, 231));
-        jButton4.setText("CANCELAR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jBCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        jBCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jBCancelar.setForeground(new java.awt.Color(35, 110, 231));
+        jBCancelar.setText("CANCELAR");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jBCancelarActionPerformed(evt);
             }
         });
 
-        btLimpar.setBackground(new java.awt.Color(255, 255, 255));
-        btLimpar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btLimpar.setForeground(new java.awt.Color(35, 110, 231));
-        btLimpar.setText("LIMPAR");
-        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+        jBLimpar.setBackground(new java.awt.Color(255, 255, 255));
+        jBLimpar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jBLimpar.setForeground(new java.awt.Color(35, 110, 231));
+        jBLimpar.setText("LIMPAR");
+        jBLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btLimparActionPerformed(evt);
+                jBLimparActionPerformed(evt);
             }
         });
 
@@ -567,11 +567,11 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(jBCancelar)
                         .addGap(40, 40, 40)
-                        .addComponent(btLimpar)
+                        .addComponent(jBLimpar)
                         .addGap(37, 37, 37)
-                        .addComponent(jButton2)
+                        .addComponent(jBSalvar)
                         .addGap(166, 166, 166))
                     .addComponent(jTabbedPane1)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -586,9 +586,9 @@ public class CadSupervisor extends javax.swing.JDialog {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
 
@@ -609,7 +609,7 @@ public class CadSupervisor extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
         preencheDados();
         if (!Util.CPF(supervisor.getCpf())) {
             JOptionPane.showMessageDialog(null, "O CPF não e válido");
@@ -617,7 +617,9 @@ public class CadSupervisor extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Este CPF já está cadastrado");
         } else if (supervisor.getEmail().equals("") || supervisor.getEmail() == null) {
             JOptionPane.showMessageDialog(null, "O EMail e obrigatório");
-        } else if (usuariodao.isExistenteEmail(supervisor.getEmail()) != supervisor.getId()) {
+        } else if(Util.isEmailValido(supervisor.getEmail())){
+            JOptionPane.showMessageDialog(null, "Este Email é inválido");
+        }else if (usuariodao.isExistenteEmail(supervisor.getEmail()) != supervisor.getId()) {
             JOptionPane.showMessageDialog(null, "Este Email já está cadastrado");
         } else if (supervisor.getNome().equals("") || supervisor.getNome() == null) {
             JOptionPane.showMessageDialog(null, "O nome e obrigatório");
@@ -635,11 +637,11 @@ public class CadSupervisor extends javax.swing.JDialog {
             supervisordao.atualizar(supervisor);
             this.dispose();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBSalvarActionPerformed
 
-    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+    private void jBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparActionPerformed
         Util.limparCamposGenerico(this);
-    }//GEN-LAST:event_btLimparActionPerformed
+    }//GEN-LAST:event_jBLimparActionPerformed
 
     private void tfRadiofemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRadiofemininoActionPerformed
         // TODO add your handling code here:
@@ -661,9 +663,9 @@ public class CadSupervisor extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfemailActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void tfcidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcidadeActionPerformed
         // TODO add your handling code here:
@@ -716,10 +718,10 @@ public class CadSupervisor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btLimpar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBLimpar;
+    private javax.swing.JButton jBSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
