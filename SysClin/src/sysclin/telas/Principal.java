@@ -33,77 +33,112 @@ public class Principal extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(35, 113, 231));
-
-        jLabel1.setBackground(new java.awt.Color(35, 110, 231));
-        jLabel1.setFont(new java.awt.Font("Bell MT", 0, 90)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SysClin");
-
-        jLabel2.setBackground(new java.awt.Color(35, 110, 231));
-        jLabel2.setFont(new java.awt.Font("Bell MT", 2, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Sistema Clinico Psicológico");
+        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel2)))
-                .addGap(162, 162, 162))
+            .addGap(0, 684, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(125, Short.MAX_VALUE))
+            .addGap(0, 315, Short.MAX_VALUE)
         );
 
         jMenuBar2.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar2.setForeground(new java.awt.Color(35, 110, 231));
 
+        jMenu4.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sysclin/imagens/cadastrar.png"))); // NOI18N
+        jMenu4.setText("Cadastros");
+        jMenu4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jMenu4.setHideActionText(true);
+        jMenu4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jMenu4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jMenuItem5.setText("Professor");
+        jMenu4.add(jMenuItem5);
+
+        jMenuItem6.setText("Aluno");
+        jMenu4.add(jMenuItem6);
+
+        jMenuItem7.setText("Atendente");
+        jMenu4.add(jMenuItem7);
+
+        jMenuItem8.setText("Paciente");
+        jMenu4.add(jMenuItem8);
+
+        jMenuBar2.add(jMenu4);
+
         jMenu3.setForeground(new java.awt.Color(35, 110, 231));
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sysclin/imagens/cadastrar.png"))); // NOI18N
-        jMenu3.setText("Cadastros");
+        jMenu3.setText("Atendimento");
         jMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu3.setHideActionText(true);
         jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jMenuItem1.setText("Professor");
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem2.setText("Aluno");
-        jMenu3.add(jMenuItem2);
-
-        jMenuItem3.setText("Atendente");
-        jMenu3.add(jMenuItem3);
-
         jMenuItem4.setText("Paciente");
         jMenu3.add(jMenuItem4);
 
         jMenuBar2.add(jMenu3);
+
+        jMenu5.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu5.setText("Avaliar");
+        jMenu5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jMenu5.setHideActionText(true);
+        jMenu5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jMenu5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jMenuItem10.setText("Aluno");
+        jMenu5.add(jMenuItem10);
+
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu6.setText("Ajuda");
+        jMenu6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jMenu6.setHideActionText(true);
+        jMenu6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jMenu6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jMenuBar2.add(jMenu6);
+
+        jMenu7.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu7.setText("Sair");
+        jMenu7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jMenu7.setHideActionText(true);
+        jMenu7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jMenu7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jMenuItem19.setText("Logoff");
+        jMenu7.add(jMenuItem19);
+
+        jMenuItem20.setText("Sair");
+        jMenu7.add(jMenuItem20);
+
+        jMenuBar2.add(jMenu7);
 
         setJMenuBar(jMenuBar2);
 
@@ -165,14 +200,20 @@ public class Principal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
