@@ -60,7 +60,7 @@ public class Principal extends javax.swing.JDialog {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 315, Short.MAX_VALUE)
+            .addGap(0, 347, Short.MAX_VALUE)
         );
 
         jMenuBar2.setBackground(new java.awt.Color(255, 255, 255));
@@ -90,6 +90,7 @@ public class Principal extends javax.swing.JDialog {
         jMenuBar2.add(jMenu4);
 
         jMenu3.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sysclin/imagens/atendimento.png"))); // NOI18N
         jMenu3.setText("Atendimento");
         jMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu3.setHideActionText(true);
@@ -103,6 +104,7 @@ public class Principal extends javax.swing.JDialog {
         jMenuBar2.add(jMenu3);
 
         jMenu5.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sysclin/imagens/avaliar.png"))); // NOI18N
         jMenu5.setText("Avaliar");
         jMenu5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu5.setHideActionText(true);
@@ -116,6 +118,7 @@ public class Principal extends javax.swing.JDialog {
         jMenuBar2.add(jMenu5);
 
         jMenu6.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sysclin/imagens/ajuda.png"))); // NOI18N
         jMenu6.setText("Ajuda");
         jMenu6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu6.setHideActionText(true);
@@ -125,6 +128,7 @@ public class Principal extends javax.swing.JDialog {
         jMenuBar2.add(jMenu6);
 
         jMenu7.setForeground(new java.awt.Color(35, 110, 231));
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sysclin/imagens/sair.png"))); // NOI18N
         jMenu7.setText("Sair");
         jMenu7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu7.setHideActionText(true);
